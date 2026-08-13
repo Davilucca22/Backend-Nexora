@@ -9,6 +9,7 @@
     "pg": "^8.23.0"
   },
   "scripts": {
-    "dev":"nodemon app.js"
+    "dev":"nodemon app.js",
+    "seed":"node src/database/seeds.js"
   }
 }
