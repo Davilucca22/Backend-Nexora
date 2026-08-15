@@ -1,13 +1,21 @@
 import Express from 'express'
 import helmet from 'helmet'
+import cors from 'cors'
+import cookieParser from 'cookie-parser';
 import route from './src/routes/router.js';
 import { testConnection } from './database.js';
 const app = Express();
 
 app.use(helmet())
 
+app.use(cors({
+    origin:process.env.END_POINT_FRONT,
+    credentials: true
+}))
+
 app.use(Express.json())
 app.use(Express.urlencoded({extended:true}))
+app.use(cookieParser())
 
 app.use(route)
 
